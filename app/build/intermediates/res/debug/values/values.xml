@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/D:/git/RecomProjects/MyWeather2.0/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="black">#000000</color>
     <color name="black_overlay">#cc000000</color>
-    <!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/app/build/intermediates/exploded-aar/MyWeather2.0/reconUI/unspecified/res/values/values.xml -->
+    <!-- From: file:/D:/git/RecomProjects/MyWeather2.0/app/build/intermediates/exploded-aar/MyWeather2.0/reconUI/unspecified/res/values/values.xml -->
     <eat-comment/>
     <color name="recon_jet_background">#000000</color>
     <color name="recon_jet_background_translucent">#B3000000</color>
@@ -13,7 +13,7 @@
     <color name="recon_jet_text_primary">#FFFFFF</color>
     <color name="recon_jet_text_secondary">#808080</color>
     <color name="recon_jet_white">#FFFFFF</color>
-    <!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/D:/git/RecomProjects/MyWeather2.0/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="write">#ffffff</color>
     <declare-styleable name="ButtonActionView"><attr format="string" localization="suggested" name="actionText"/><attr format="reference" name="buttonIcon"/><attr name="buttonType"><enum name="select" value="0"/><enum name="back" value="1"/><enum name="up" value="2"/><enum name="down" value="3"/><enum name="updown" value="4"/></attr></declare-styleable>
@@ -22,11 +22,11 @@
     <declare-styleable name="ReconListView"><attr format="dimension" name="listHeaderMargin"/></declare-styleable>
     <declare-styleable name="ReconTextView"><attr format="reference" name="fontResource"/></declare-styleable>
     <declare-styleable name="TwoWayView"><attr name="android:orientation"/><attr name="android:choiceMode"/><attr name="android:listSelector"/><attr name="android:drawSelectorOnTop"/></declare-styleable>
-    <!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/D:/git/RecomProjects/MyWeather2.0/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">5dp</dimen>
     <dimen name="activity_vertical_margin">5dp</dimen>
-    <!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/D:/git/RecomProjects/MyWeather2.0/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_settings">MyWeather : Settings</string>
     <string name="app_name">MyWeather</string>
@@ -52,7 +52,7 @@
     <string name="wind_en ">Wind :</string>
     <string name="wind_fr ">Vent :</string>
     <string name="yes">Quit</string>
-    <!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/D:/git/RecomProjects/MyWeather2.0/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
@@ -79,7 +79,7 @@
         <item name="metaButtonBarStyle">@style/ButtonBar</item>
         <item name="metaButtonBarButtonStyle">@style/ButtonBarButton</item>
     </style>
-    <!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/app/build/intermediates/exploded-aar/MyWeather2.0/reconUI/unspecified/res/values/values.xml -->
+    <!-- From: file:/D:/git/RecomProjects/MyWeather2.0/app/build/intermediates/exploded-aar/MyWeather2.0/reconUI/unspecified/res/values/values.xml -->
     <eat-comment/>
     <style name="ReconTheme" parent="android:Theme.NoTitleBar">
         <item name="android:windowNoTitle">true</item>
@@ -103,12 +103,12 @@
         <item name="android:colorBackground">@color/recon_jet_background</item>
         <item name="android:windowFullscreen">true</item>
     </style>
-    <!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/D:/git/RecomProjects/MyWeather2.0/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="TwoWayView">
     	<item name="android:orientation">horizontal</item>
 	</style>
-    <!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/app/build/intermediates/exploded-aar/MyWeather2.0/reconUI/unspecified/res/values/values.xml -->
+    <!-- From: file:/D:/git/RecomProjects/MyWeather2.0/app/build/intermediates/exploded-aar/MyWeather2.0/reconUI/unspecified/res/values/values.xml -->
     <eat-comment/>
     <style name="recon_button_action">
 		<item name="android:layout_width">wrap_content</item>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/reconUI/src/main/res/values/color.xml -->
+    <!-- From: file:/D:/git/RecomProjects/MyWeather2.0/reconUI/src/main/res/values/color.xml -->
     <eat-comment/>
     <color name="recon_jet_background">#000000</color>
     <color name="recon_jet_background_translucent">#B3000000</color>
@@ -13,7 +13,7 @@
     <declare-styleable name="CarouselViewPager"><attr format="boolean" name="showBreadcrumbs"/><attr format="boolean" name="animateSelection"/><attr format="dimension" name="pageMargin"/></declare-styleable>
     <declare-styleable name="ReconListView"><attr format="dimension" name="listHeaderMargin"/></declare-styleable>
     <declare-styleable name="ReconTextView"><attr format="reference" name="fontResource"/></declare-styleable>
-    <!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/reconUI/src/main/res/values/themes.xml -->
+    <!-- From: file:/D:/git/RecomProjects/MyWeather2.0/reconUI/src/main/res/values/themes.xml -->
     <eat-comment/>
     <style name="ReconTheme" parent="android:Theme.NoTitleBar">
         <item name="android:windowNoTitle">true</item>
@@ -37,7 +37,7 @@
         <item name="android:colorBackground">@color/recon_jet_background</item>
         <item name="android:windowFullscreen">true</item>
     </style>
-    <!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/reconUI/src/main/res/values/styles.xml -->
+    <!-- From: file:/D:/git/RecomProjects/MyWeather2.0/reconUI/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="recon_button_action">
 		<item name="android:layout_width">wrap_content</item>

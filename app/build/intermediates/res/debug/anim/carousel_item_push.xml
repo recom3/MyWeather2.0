@@ -2,4 +2,4 @@
 <set xmlns:android="http://schemas.android.com/apk/res/android">
     <scale android:pivotX="50%" android:pivotY="50%" android:fromXScale="1.0" android:fromYScale="1.0" android:toXScale="0.9" android:toYScale="0.9" android:duration="35"/>
     <scale android:pivotX="50%" android:pivotY="50%" android:fromXScale="0.9" android:fromYScale="0.9" android:toXScale="1.0" android:toYScale="1.0" android:duration="20" android:startOffset="50"/>
-</set><!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/reconUI/src/main/res/anim/carousel_item_push.xml --><!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/app/build/intermediates/exploded-aar/MyWeather2.0/reconUI/unspecified/res/anim/carousel_item_push.xml -->
+</set><!-- From: file:/D:/git/RecomProjects/MyWeather2.0/reconUI/src/main/res/anim/carousel_item_push.xml --><!-- From: file:/D:/git/RecomProjects/MyWeather2.0/app/build/intermediates/exploded-aar/MyWeather2.0/reconUI/unspecified/res/anim/carousel_item_push.xml -->

@@ -3,4 +3,4 @@
     android:interpolator="@android:anim/accelerate_interpolator"
     android:fromYDelta="-100%"
     android:toYDelta="0.0"
-    android:duration="500" /><!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/app/src/main/res/anim/slidedown_in.xml -->
+    android:duration="500" /><!-- From: file:/D:/git/RecomProjects/MyWeather2.0/app/src/main/res/anim/slidedown_in.xml -->

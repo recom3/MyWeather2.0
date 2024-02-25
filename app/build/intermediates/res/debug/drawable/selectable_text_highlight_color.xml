@@ -2,4 +2,4 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 	<item android:state_selected="false" android:color="@color/recon_jet_text_secondary"/>
 	<item android:state_selected="true" android:color="@color/recon_jet_highlight"/>
-</selector><!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/reconUI/src/main/res/drawable/selectable_text_highlight_color.xml --><!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/app/build/intermediates/exploded-aar/MyWeather2.0/reconUI/unspecified/res/drawable/selectable_text_highlight_color.xml -->
+</selector><!-- From: file:/D:/git/RecomProjects/MyWeather2.0/reconUI/src/main/res/drawable/selectable_text_highlight_color.xml --><!-- From: file:/D:/git/RecomProjects/MyWeather2.0/app/build/intermediates/exploded-aar/MyWeather2.0/reconUI/unspecified/res/drawable/selectable_text_highlight_color.xml -->
