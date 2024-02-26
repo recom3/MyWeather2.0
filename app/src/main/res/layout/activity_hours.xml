@@ -1,0 +1,13 @@
+<org.lucasr.twowayview.TwoWayView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lvItems"
+    style="@style/TwoWayView"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/write"
+    android:drawSelectorOnTop="false"
+    android:orientation="horizontal"
+    android:cacheColorHint="#00000000"
+    tools:context=".HoursActivity" />
+

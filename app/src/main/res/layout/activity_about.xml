@@ -1,0 +1,46 @@
+<?xml version="1.0"  encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_height="240dp"
+    android:layout_width="428dp"
+    android:paddingLeft="15dp"
+    android:paddingTop="5dp"
+    android:paddingRight="15dp"
+    xmlns:auto="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<ScrollView android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <LinearLayout android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:paddingLeft="30dip"
+        android:layout_weight="1">
+
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:lines="2"
+        android:text="MyWeather 2.0"
+        android:textStyle="bold" />
+
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:lines="2"
+        android:text="contact&amp;support:/longin.francois@gmail.com"
+        android:textSize="26dp" />
+
+    <com.reconinstruments.ui.view.ReconTextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:lines="1"
+        android:text="Data Powered by Forecast"
+        auto:fontResource="@raw/opensans_semibold"
+        android:textSize="26dp" />
+
+    </LinearLayout>
+
+</ScrollView>
+
+</LinearLayout>
