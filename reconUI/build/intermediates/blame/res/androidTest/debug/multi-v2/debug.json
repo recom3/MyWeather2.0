@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,19,29,36,41,45,53,57,64,67,72,75,78",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,110,179,228,282,339,398,1261,1888,2336,2629,2791,3170,3368,3693,3846,4056,4214,4383",
+                        "endLines": "2,3,4,5,6,7,8,28,35,40,44,52,56,63,66,71,74,77,85",
+                        "endColumns": "54,68,48,53,56,58,49,12,12,12,9,9,9,9,9,9,9,9,9",
+                        "endOffsets": "105,174,223,277,334,393,443,1883,2331,2624,2786,3165,3363,3688,3841,4051,4209,4378,4737"
+                    }
+                }
+            ]
+        }
+    ]
+}

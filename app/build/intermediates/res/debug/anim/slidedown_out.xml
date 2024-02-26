@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<translate xmlns:android="http://schemas.android.com/apk/res/android"
-    android:interpolator="@android:anim/accelerate_interpolator"
-    android:fromYDelta="0.0"
-    android:toYDelta="100%"
-    android:duration="500" /><!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/app/src/main/res/anim/slidedown_out.xml -->

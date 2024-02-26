@@ -24,4 +24,3 @@
         android:layout_gravity="center"
         auto:showBreadcrumbs="false"/>
 </LinearLayout>
-<!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/reconUI/src/main/res/layout/carousel_host_divider.xml -->

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="recon_sdk_2.0.1">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/libs/recon_sdk_2.0.1.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

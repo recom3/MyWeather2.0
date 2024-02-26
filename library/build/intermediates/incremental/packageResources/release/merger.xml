@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\B1g0n3\git\MyWeather2.0\library\src\main\res"><file path="C:\Users\B1g0n3\git\MyWeather2.0\library\src\main\res\values\attrs.xml" qualifiers=""><declare-styleable name="TwoWayView">
-        <attr name="android:orientation"/>
-        <attr name="android:choiceMode"/>
-        <attr name="android:listSelector"/>
-        <attr name="android:drawSelectorOnTop"/>
-    </declare-styleable></file></source><source path="C:\Users\B1g0n3\git\MyWeather2.0\library\build\generated\res\rs\release"/><source path="C:\Users\B1g0n3\git\MyWeather2.0\library\build\generated\res\generated\release"/></dataSet><dataSet config="release"><source path="C:\Users\B1g0n3\git\MyWeather2.0\library\src\release\res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="TwoWayView"><attr name="android:orientation"/><attr name="android:choiceMode"/><attr name="android:listSelector"/><attr name="android:drawSelectorOnTop"/></declare-styleable></configuration></mergedItems></merger>

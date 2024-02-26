@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\git\RecomProjects\MyWeather2.0_build\reconUI\src\main\assets"/><source path="D:\git\RecomProjects\MyWeather2.0_build\reconUI\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\git\RecomProjects\MyWeather2.0_build\reconUI\src\debug\assets"/></dataSet></merger>

@@ -1,0 +1,198 @@
+[
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_list_standard_layout.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\layout\\list_standard_layout.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_icon_action_down.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\icon_action_down.png"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw_opensans_bold.ttf.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\raw\\opensans_bold.ttf"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_fade_in_slide_in_left.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\anim\\fade_in_slide_in_left.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_icon_action_back.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\icon_action_back.png"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_fade_in_slide_in_bottom.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\anim\\fade_in_slide_in_bottom.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_carousel_item_icon.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\layout\\carousel_item_icon.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_carousel_item_title_icon_column.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\layout\\carousel_item_title_icon_column.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_checkbox_disabled_grey.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\checkbox_disabled_grey.png"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_selectable_checkbox_enabled.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable\\selectable_checkbox_enabled.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_carousel_item_checkmark_selector.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\layout\\carousel_item_checkmark_selector.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_carousel_host_divider.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\layout\\carousel_host_divider.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_breadcrumb_square_dark.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\breadcrumb_square_dark.png"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_icon_checkmark_flat.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\icon_checkmark_flat.png"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_fade_in_slide_in_top.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\anim\\fade_in_slide_in_top.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_list_item_standard_layout.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\layout\\list_item_standard_layout.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_carousel_host_bold_text.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\layout\\carousel_host_bold_text.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_checkbox_disabled_orange.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\checkbox_disabled_orange.png"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_carousel_item_push.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\anim\\carousel_item_push.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_icon_checkmark.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\icon_checkmark.png"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_button_action.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\layout\\button_action.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_slide_out_bottom.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\anim\\slide_out_bottom.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_selectable_checkmark_hidden.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable\\selectable_checkmark_hidden.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_selectable_text_highlight_color.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable\\selectable_text_highlight_color.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_breadcrumb_square_white.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\breadcrumb_square_white.png"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_dialog_standard.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\layout\\dialog_standard.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_selectable_text_highlight_hidden.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable\\selectable_text_highlight_hidden.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw_opensans_light.ttf.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\raw\\opensans_light.ttf"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_slide_in_bottom.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\anim\\slide_in_bottom.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_carousel_item_checkmark.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\layout\\carousel_item_checkmark.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_carousel_host.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\layout\\carousel_host.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_carousel_item_title.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\layout\\carousel_item_title.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_slide_in_top.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\anim\\slide_in_top.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_icon_warning.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\icon_warning.png"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_slide_out_top.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\anim\\slide_out_top.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_loading_spinner.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\loading_spinner.png"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_recon_loading_spinner.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable\\recon_loading_spinner.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_checkbox_enabled_orange.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\checkbox_enabled_orange.png"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_icon_action_select_remote.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\icon_action_select_remote.png"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_fade_out.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\anim\\fade_out.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_selectable_text_highlight_white.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable\\selectable_text_highlight_white.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_fade_in_slide_in_right.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\anim\\fade_in_slide_in_right.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_icon_action_select.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\icon_action_select.png"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw_opensans_semibold.ttf.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\raw\\opensans_semibold.ttf"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw_opensans_regular.ttf.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\raw\\opensans_regular.ttf"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_icon_action_up_down.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\icon_action_up_down.png"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_carousel_host_title_body.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\layout\\carousel_host_title_body.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_selectable_checkbox_disabled.xml.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable\\selectable_checkbox_disabled.xml"
+    },
+    {
+        "merged": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_checkbox_enabled_grey.png.flat",
+        "source": "D:\\git\\RecomProjects\\MyWeather2.0_build\\reconUI\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\checkbox_enabled_grey.png"
+    }
+]

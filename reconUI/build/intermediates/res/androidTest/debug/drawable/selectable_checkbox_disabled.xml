@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-	<item android:drawable="@drawable/checkbox_disabled_grey" android:state_selected="false"/>
-	<item android:drawable="@drawable/checkbox_disabled_orange" android:state_selected="true"/>
-</selector><!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/reconUI/src/main/res/drawable/selectable_checkbox_disabled.xml --><!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/reconUI/build/intermediates/bundles/debug/res/drawable/selectable_checkbox_disabled.xml -->

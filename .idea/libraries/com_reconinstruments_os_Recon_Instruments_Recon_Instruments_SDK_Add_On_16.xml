@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="com.reconinstruments.os-Recon Instruments:Recon Instruments SDK Add-On:16">
-    <CLASSES>
-      <root url="jar://D:/Program Files/Android/sdk/add-ons/addon-recon_instruments_sdk_add-on-recon_instruments-16/libs/com.reconinstruments.os.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

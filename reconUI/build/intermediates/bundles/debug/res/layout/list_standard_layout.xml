@@ -7,4 +7,4 @@
 		android:id="@android:id/list"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"/>
-</FrameLayout><!-- From: file:/C:/Users/B1g0n3/git/MyWeather2.0/reconUI/src/main/res/layout/list_standard_layout.xml -->
+</FrameLayout>
