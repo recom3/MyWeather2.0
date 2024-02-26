@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/checkmark"
+        android:layout_width="34px"
+        android:layout_height="match_parent"
+        android:src="@drawable/icon_checkmark_flat"
+        android:layout_marginRight="5dp"/>
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        style="@style/recon_jet_text_selectable"
+        android:textSize="44sp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        tools:text="TITLE"/>
+    <!-- add equal sized space on right so that title can be centered and view is still measurable -->
+    <ImageView
+        android:layout_width="34px"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"/>
+</LinearLayout>
