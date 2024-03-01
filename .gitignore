@@ -55,6 +55,8 @@ Temporary Items
 /app/release
 /app/build
 app/build
+library/build
+reconUI/build
 
 *.orig
 

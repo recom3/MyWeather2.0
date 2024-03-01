@@ -1,33 +1,34 @@
 package com.myweather;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
-import java.util.UUID;
-
-import com.github.dvdme.ForecastIOLib.FIOCurrently;
-import com.github.dvdme.ForecastIOLib.FIOHourly;
-import com.github.dvdme.ForecastIOLib.ForecastIO;
 
 //import com.reconinstruments.os.HUDOS;
 import com.reconinstruments.os.connectivity.HUDConnectivityManager;
 import com.reconinstruments.os.connectivity.HUDWebService;
 import com.reconinstruments.os.connectivity.IHUDConnectivity;
-import com.reconinstruments.os.connectivity.bluetooth.HUDSPPService;
 import com.reconinstruments.os.connectivity.http.HUDHttpRequest;
-import com.reconinstruments.os.connectivity.http.HUDHttpRequest.RequestMethod;
 import com.reconinstruments.os.connectivity.http.HUDHttpResponse;
 import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothClass;
+import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.location.Criteria;
 import android.location.Location;
@@ -37,7 +38,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
-import android.os.StrictMode;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.ImageView;
@@ -70,6 +70,10 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 	boolean Mydebug, nointernet, nogps;
 	private String un,city;
 	private String feel,press,wind,humid,time;
+
+	private static final String mac_file = "mac_myweather.json";
+	public static boolean phoneConnected = false;
+	public static String phoneAddress = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +115,16 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 		iconimage1 = (ImageView) findViewById(R.id.icon1);
 		iconimage2 = (ImageView) findViewById(R.id.icon2);
 	    statusline=""; city=""; language="en";
+
+		//Recom3: receiver are register to hear to BT activity
+		IntentFilter filter = new IntentFilter();
+		filter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);
+		filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECT_REQUESTED);
+		filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
+		this.registerReceiver(mReceiver, filter);
+
+	    //Uncomment to load mac address from file
+	    loadMacAddres();
 	}
 
 	@Override
@@ -572,4 +586,87 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 			MainActivity.this.mHUDWebService = null;
 		}
 	};
+
+	//The BroadcastReceiver that listens for bluetooth broadcasts
+	private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			String action = intent.getAction();
+			BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+
+			if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+				//Device found
+			}
+			else if (BluetoothDevice.ACTION_ACL_CONNECTED.equals(action)) {
+				//Device is now connected
+
+				Log.i("MainActivity", "ACTION_ACL_CONNECTED");
+
+				BluetoothClass btClass = device.getBluetoothClass();
+				if(btClass.getDeviceClass()== BluetoothClass.Device.PHONE_SMART
+						|| btClass.getDeviceClass()== BluetoothClass.Device.PHONE_CELLULAR)
+				{
+					phoneConnected = true;
+					phoneAddress = device.getAddress();
+					SaveMacDataToFile(phoneAddress);
+
+					Log.i("MainActivity", "SaveMacDataToFile");
+
+					mHUDWebService.connect();
+				}
+			}
+			else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
+				//Done searching
+			}
+			else if (BluetoothDevice.ACTION_ACL_DISCONNECT_REQUESTED.equals(action)) {
+				//Device is about to disconnect
+			}
+			else if (BluetoothDevice.ACTION_ACL_DISCONNECTED.equals(action)) {
+				//Device has disconnected
+				BluetoothClass btClass = device.getBluetoothClass();
+				if(btClass.getDeviceClass()== BluetoothClass.Device.PHONE_SMART
+						|| btClass.getDeviceClass()== BluetoothClass.Device.PHONE_CELLULAR)
+				{
+					phoneConnected = false;
+				}
+			}
+		}
+	};
+
+	private void SaveMacDataToFile(String data) {
+		FileOutputStream fos;
+		try {
+			fos = this.openFileOutput(mac_file, Context.MODE_PRIVATE);
+			fos.write(data.getBytes());
+			fos.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void loadMacAddres()
+	{
+		File fl = new File(this.getFilesDir()+"/"+ mac_file);
+		if (fl.exists() ) {
+			FileInputStream fin;
+			try {
+				fin = new FileInputStream(fl);
+				BufferedReader reader = new BufferedReader(new InputStreamReader(fin));
+				StringBuilder sb = new StringBuilder();
+				String line="";
+				try {
+					while ((line = reader.readLine()) != null) {
+						sb.append(line);//
+					}
+					reader.close();
+					phoneAddress=sb.toString();
+					fin.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

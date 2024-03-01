@@ -309,10 +309,10 @@ public class HUDWebService extends Service {
                 String address = "";
                 //if(MainActivity.phoneConnected) {
 
-                //Hwi
+                //Force P10
                 address = "D8:C7:71:E1:95:FA";
                 //!!!recom3
-                //address = MainActivity.phoneAddress;
+                address = MainActivity.phoneAddress;
 
                 /*
                 Iterator<BluetoothDevice> iterator = BluetoothAdapter.getDefaultAdapter().getBondedDevices().iterator();
