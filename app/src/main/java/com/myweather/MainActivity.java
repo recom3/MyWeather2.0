@@ -1,6 +1,7 @@
 package com.myweather;
 
 import java.io.BufferedReader;
+import java.io.Externalizable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,6 +12,7 @@ import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.TimeZone;
 
 //import com.reconinstruments.os.HUDOS;
@@ -48,6 +50,12 @@ import org.json.JSONObject;
 
 public class MainActivity extends Activity implements IHUDConnectivity {
 
+	static String BASE_API = "http://api.open-meteo.com/v1/forecast";
+	String apiUrlWithParamCurrent = BASE_API + "?latitude=%s&longitude=%s&current_weather=true";
+	String apiUrlWithParamHourly = BASE_API + "?latitude=%s&longitude=%s&hourly=temperature&hourly=weathercode&hourly=is_day&hourly=apparent_temperature";
+
+	OpenMeteoParser openMeteoParser = new OpenMeteoParser();
+
 	HUDWebService mHUDWebService;
 
 	private LocationManager locationManager;
@@ -74,6 +82,37 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 	private static final String mac_file = "mac_myweather.json";
 	public static boolean phoneConnected = false;
 	public static String phoneAddress = "";
+
+	public static HashMap<String, String[]> mapOpenMeteoCodes = new HashMap<>();
+	public static String[][] openMeteoCodes =
+		{{"0","Clear sky","clear_day","clear_night"},
+		{"1","Mainly clear","clear_day","clear_night"},
+		{"2","partly cloudy","partly_cloudy_day","partly_cloudy_night"},
+		{"3","and overcast","cloudy","cloudy"},
+		{"45","Fog and ","fog","fog"},
+		{"48","depositing rime fog","fog","fog"},
+		{"51","Drizzle: Light","rain","rain"},
+		{"53","moderate","rain","rain"},
+		{"55","and dense intensity","rain","rain"},
+		{"56","Freezing Drizzle: Light and ","rain","rain"},
+		{"57","dense intensity","rain","rain"},
+		{"61","Rain: Slight","rain","rain"},
+		{"63","moderate and ","rain","rain"},
+		{"65","heavy intensity","rain","rain"},
+		{"66","Freezing Rain: Light and ","sleet","sleet"},
+		{"67","heavy intensity","sleet","sleet"},
+		{"71","Snow fall: Slight","snow","snow"},
+		{"73","moderate","snow","snow"},
+		{"75","and heavy intensity","snow","snow"},
+		{"77","Snow grains","snow","snow"},
+		{"80","Rain showers: Slight","rain","rain"},
+		{"81","moderate","rain","rain"},
+		{"82","and violent","rain","rain"},
+		{"85","Snow showers slight and ","sleet","sleet"},
+		{"86","heavy","sleet","sleet"},
+		{"95","Thunderstorm: Slight or moderate","rain","rain"},
+		{"96","Thunderstorm with slight and ","rain","rain"},
+		{"99","heavy hail","rain","rain"}};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -125,6 +164,23 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 
 	    //Uncomment to load mac address from file
 	    loadMacAddres();
+
+	    //Create open meteo map to translate codes to icons
+		createMapOpenMeteo();
+	}
+
+	public static void createMapOpenMeteo()
+	{
+		int indexCode = 0;
+		int indexDay = 2;
+		int indexNight = 3;
+		for(int index=0;index<openMeteoCodes.length;index++)
+		{
+			String[] nightDay = new String[2];
+			nightDay[0] = openMeteoCodes[index][indexDay];
+			nightDay[1] = openMeteoCodes[index][indexNight];
+			mapOpenMeteoCodes.put(openMeteoCodes[index][0], nightDay);
+		}
 	}
 
 	@Override
@@ -177,8 +233,12 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 		doRefresh();
 		super.onResume();
     }
-    
-    private void onDisplay(String data) {
+
+	/**
+	 * Called by WebRequestTask3 onPostExecute
+	 * @param data
+	 */
+	private void onDisplay(String data) {
 		if (nointernet ) { statusline ="No Internet access";}
 		if (nogps ) { statusline ="No Gps signal";}
 		if (nointernet & nogps) { statusline = "no gps and no Internet"; }
@@ -209,6 +269,7 @@ public class MainActivity extends Activity implements IHUDConnectivity {
     		temperature.setText(DoubleToI(currently.get().getByKey("temperature"))+"°");
     		textressentie.setText(DoubleToI(currently.get().getByKey("apparentTemperature"))+"°");
 			textView5.setText("Feels like ");
+
 			out("Displaying Next 1h");
 			FIOHourly hourly = new FIOHourly(fio);
 			Date date2 = new Date();
@@ -221,6 +282,7 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 			resourceId = res.getIdentifier(icon, "drawable", getPackageName() );
 			iconimage1.setImageResource(resourceId);
 			temperature1.setText(DoubleToI(hourly.getHour(next).getByKey("temperature")) + "°");
+
 			out("Displaying Next 2h");
 			icon = "@drawable/"+hourly.getHour(next+1).icon().replace("\"", "").replace("-", "_");
 			resourceId = res.getIdentifier(icon, "drawable", getPackageName());
@@ -246,19 +308,32 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 
     private void displayOpenMeteo(String data)
 	{
-		JSONObject currentWeather = null;
+		//JSONObject currentWeather = null;
+		OpenMeteoParser.WeatherInfo[] weatherInfo = null;
 		try {
-			JSONObject object = new JSONObject(data);
-			currentWeather = object.getJSONObject("current_weather");
-		} catch (JSONException e) {
+			//JSONObject object = new JSONObject(data);
+			//currentWeather = object.getJSONObject("current_weather");
+			weatherInfo = openMeteoParser.parseHourlyWeather(data);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		//String icon =  currently.get().getByKey("icon").replace("\"", "");
-		//String icon1 = "@drawable/"+icon.replace("-", "_");
-		Resources res = getResources();
-		//int resourceId = res.getIdentifier(icon1, "drawable", getPackageName() );
-		//iconimage.setImageResource( resourceId);
+		try {
+			//String weatherCode = currentWeather.getString("weathercode");
+			String weatherCode = weatherInfo[0].getCurrendCode();
+			if(mapOpenMeteoCodes.containsKey(weatherCode))
+			{
+				int nightDay = Integer.parseInt(weatherInfo[0].getCurrentIsDay());
+				String icon =  mapOpenMeteoCodes.get(weatherCode)[nightDay];
+				String icon1 = "@drawable/"+icon.replace("-", "_");
+				Resources res = getResources();
+				int resourceId = res.getIdentifier(icon1, "drawable", getPackageName() );
+				iconimage.setImageResource( resourceId);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		setTitle("MyWeather : currently");
 		feel = getString(R.string.feellike_en);
 		press = getString(R.string.pressure_en);
@@ -268,8 +343,8 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 
 		//String [] f  = currently.get().getFieldsArray();
 		try {
-			temperature.setText(DoubleToI(currentWeather.getString("temperature"))+"°");
-			textressentie.setText(DoubleToI(currentWeather.getString("temperature"))+"°");
+			temperature.setText(DoubleToI(weatherInfo[0].getCurrentTemp())+"°");
+			textressentie.setText(DoubleToI(weatherInfo[0].getApparentTemperature())+"°");
 			textView5.setText("Feels like ");
 
 			out("Displaying Next 1h");
@@ -284,14 +359,38 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 			//icon = "@drawable/"+hourly.getHour(next).icon().replace("\"", "").replace("-", "_");
 			//resourceId = res.getIdentifier(icon, "drawable", getPackageName() );
 			//iconimage1.setImageResource(resourceId);
-			temperature1.setText(DoubleToI(currentWeather.getString("temperature")) + "°");
+
+			String weatherCode = weatherInfo[1].getCurrendCode();
+			if(mapOpenMeteoCodes.containsKey(weatherCode))
+			{
+				int nightDay = Integer.parseInt(weatherInfo[1].getCurrentIsDay());
+				String icon =  mapOpenMeteoCodes.get(weatherCode)[nightDay];
+				String icon1 = "@drawable/"+icon.replace("-", "_");
+				Resources res = getResources();
+				int resourceId = res.getIdentifier(icon1, "drawable", getPackageName() );
+				iconimage1.setImageResource( resourceId);
+			}
+
+			temperature1.setText(DoubleToI(weatherInfo[1].getCurrentTemp()) + "°");
 
 			out("Displaying Next 2h");
 
 			//icon = "@drawable/"+hourly.getHour(next+1).icon().replace("\"", "").replace("-", "_");
 			//resourceId = res.getIdentifier(icon, "drawable", getPackageName());
 			//iconimage2.setImageResource( resourceId);
-			//temperature2.setText(DoubleToI(hourly.getHour(next + 1).getByKey("temperature")) + "°");
+
+			weatherCode = weatherInfo[2].getCurrendCode();
+			if(mapOpenMeteoCodes.containsKey(weatherCode))
+			{
+				int nightDay = Integer.parseInt(weatherInfo[2].getCurrentIsDay());
+				String icon =  mapOpenMeteoCodes.get(weatherCode)[nightDay];
+				String icon1 = "@drawable/"+icon.replace("-", "_");
+				Resources res = getResources();
+				int resourceId = res.getIdentifier(icon1, "drawable", getPackageName() );
+				iconimage2.setImageResource( resourceId);
+			}
+
+			temperature2.setText(DoubleToI(weatherInfo[2].getCurrentTemp()) + "°");
 
 			out("Displaying city");
 			if (city !=null & city!="") { statusline=city; }
@@ -300,7 +399,7 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 			String substr=data.substring(data.indexOf("hourly\":{\"")+20);
 			substr=substr.substring(0, substr.indexOf("\""));
 
-		} catch (JSONException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
@@ -309,6 +408,9 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 ////////////////////////////////////////////////////
 
 
+	/**
+	 * Called by DPAD center and onResume
+	 */
 	private void doRefresh() {
 		out("doRefresh()");
 		status.setText("Refreshing...");
@@ -329,6 +431,17 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 			location = new Location("");
 			location.setLatitude(40.416775d);
 			location.setLongitude(-3.703790d);
+			//
+			//	remplacement de la localisation pour test
+			//
+			//latitude=50.647392; longitude=3.130481; // my home
+			//latitude=45.092624; longitude=6.068348; // alpe d'huez
+			//latitude=45.125263; longitude=6.127609; // Pic Blanc
+			//latitude=41.919229; longitude=8.738635; //Ajaccio
+			//latitude=46.192683; longitude=48.205964; //Russie
+			//latitude=49.168602; longitude=25.351872; //bulgarie
+			//latitude=36.752887; longitude=3.042048; //alger
+			statusline = "Test location";
 		}
 
 		if (location != null) {
@@ -336,6 +449,8 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 			mylistener.onLocationChanged(location);
 			locationManager.requestLocationUpdates(provider, 2000, 100, mylistener);
 			String a = "" + location.getLatitude();
+
+			//Logging
 			if (location != null) {
 				latitude = location.getLatitude();
 				longitude = location.getLongitude();
@@ -350,25 +465,16 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 				latitude = oldLatitude;
 				longitude = oldLongitude;
 			}
-			//
-			//	remplacement de la localisation pour test
-			//
-			//latitude=50.647392; longitude=3.130481; // my home
-			//latitude=45.092624; longitude=6.068348; // alpe d'huez
-			//latitude=45.125263; longitude=6.127609; // Pic Blanc
-			//latitude=41.919229; longitude=8.738635; //Ajaccio
-			//latitude=46.192683; longitude=48.205964; //Russie
-			//latitude=49.168602; longitude=25.351872; //bulgarie
-			//latitude=36.752887; longitude=3.042048; //alger
+
 			un = "us";
 			city = ""; language="en";
 			out("Fetching data...");
 			String url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&sensor=false";
 //			new WebRequestTask4(url).execute();
-			url = "https://api.forecast.io/forecast/" + key + "/" + latitude + "," + longitude + "?lang=" + language + "&units=" + un;
+			url = "http://api.forecast.io/forecast/" + key + "/" + latitude + "," + longitude + "?lang=" + language + "&units=" + un;
 
 			//recom3: new url
-			url = "https://api.open-meteo.com/v1/forecast?latitude="+latitude+"&longitude="+longitude+"&current_weather=true";
+			url = "http://api.open-meteo.com/v1/forecast?latitude="+latitude+"&longitude="+longitude+"&current_weather=true";
 			//new WebRequestTask3(url).execute();
 
 		} else {
@@ -390,6 +496,9 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 		return df.format(db);
 	}
 
+	/**
+	 * Used by connect service with phone
+	 */
 	private class WebRequestTask3 extends AsyncTask<Void, Void, String> {
 
 		String mUrl;
@@ -572,12 +681,14 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 				e.printStackTrace();
 			}
 
-			String url = "https://api.open-meteo.com/v1/forecast?latitude="+latitude+"&longitude="+longitude+"&current_weather=true";
+			//String url = "http://api.open-meteo.com/v1/forecast?latitude="+latitude+"&longitude="+longitude+"&current_weather=true";
+			String url = String.format(apiUrlWithParamHourly, latitude, longitude);
 
 			Log.i("MainActivity", "Performing call to " + url);
 
 			MainActivity.this.mHUDConnectivityManager = MainActivity.this.mHUDWebService.hudConnectivityManager;
 
+			//Send web request to phone
 			new WebRequestTask3(url).execute();
 		}
 

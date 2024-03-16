@@ -315,7 +315,7 @@ public class DetailActivity extends Activity implements IReconDataReceiver, IHUD
             textView.setText("Fetching data...");
             try {
                 if (unit.equals("F")) { un = "us"; } else { un = "ca"; }
-                URL url = new URL("https://api.forecast.io/forecast/"+key+"/"+latitude+","+longitude+"?lang="+language+"&units="+un);
+                URL url = new URL("http://api.forecast.io/forecast/"+key+"/"+latitude+","+longitude+"?lang="+language+"&units="+un);
                 //new HashMap<String, List<String>>();
                 //sendRequest(new ReconHttpRequest("GET", url, 5000,null , null));
                 new WebRequestTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);

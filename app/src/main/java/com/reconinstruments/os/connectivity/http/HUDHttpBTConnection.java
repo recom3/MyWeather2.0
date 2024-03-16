@@ -544,7 +544,8 @@ public class HUDHttpBTConnection implements IHUDBTConsumer {
             //if (DEBUG)
             //    Log.i(TAG, "Payload Length=" + HUDBTHeaderFactory.getPayloadLength(header) + " Body Length=" + HUDBTHeaderFactory.getBodyLength(header));
 
-            data = mHUDBTService.read(HUDBTHeaderFactory.getPayloadLength(header));
+            int lenPayload = HUDBTHeaderFactory.getPayloadLength(header);
+            data = mHUDBTService.read(lenPayload);
             HUDHttpResponse hudHTTPResponse = new HUDHttpResponse(data);
 
             if (HUDBTHeaderFactory.hasBody(header)) {

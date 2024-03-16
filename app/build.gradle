@@ -21,6 +21,18 @@ android {
     }
 }
 
+task copyResDirectoryToClasses(type: Copy){
+    from "${projectDir}/src/test/res"
+    into "${buildDir}/intermediates/classes/test/debug/res"
+}
+
+//task test.dependsOn(copyResDirectoryToClasses)
+//compileReleaseUnitTestSources.dependsOn(copyResDirectoryToClasses)
+//afterEvaluate {
+//    compileReleaseUnitTestSources.dependsOn(copyResDirectoryToClasses)
+//}
+preBuild.dependsOn(copyResDirectoryToClasses)
+
 repositories {
     //maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
 }
@@ -35,4 +47,9 @@ dependencies {
     compile 'com.android.support:support-v4:23.0.1'
     compile project(':library')
     compile project(':reconUI')
+    testCompile 'junit:junit:4.12'
+    testCompile 'junit:junit:4.12'
+    testCompile 'junit:junit:4.12'
+
+    testImplementation 'org.json:json:20140107'
 }
