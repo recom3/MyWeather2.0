@@ -46,7 +46,7 @@ public class HUDHttpBTConnection implements IHUDBTConsumer {
 
     private Context mContext = null;
 
-    private HUDBTService mHUDBTService = null;
+    public HUDBTService mHUDBTService = null;
     public static IHUDBTService ihudbtService = null;
 
     private IHUDConnectivity mHUDConnectivity = null;

@@ -21,6 +21,8 @@ import com.reconinstruments.os.connectivity.HUDWebService;
 import com.reconinstruments.os.connectivity.IHUDConnectivity;
 import com.reconinstruments.os.connectivity.http.HUDHttpRequest;
 import com.reconinstruments.os.connectivity.http.HUDHttpResponse;
+import com.reconinstruments.os.utils.BTHelper;
+
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothClass;
@@ -50,6 +52,8 @@ import org.json.JSONObject;
 
 public class MainActivity extends Activity implements IHUDConnectivity {
 
+	static final String TAG = MainActivity.class.getSimpleName();
+
 	static String BASE_API = "http://api.open-meteo.com/v1/forecast";
 	String apiUrlWithParamCurrent = BASE_API + "?latitude=%s&longitude=%s&current_weather=true";
 	String apiUrlWithParamHourly = BASE_API + "?latitude=%s&longitude=%s&hourly=temperature&hourly=weathercode&hourly=is_day&hourly=apparent_temperature";
@@ -58,11 +62,15 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 
 	HUDWebService mHUDWebService;
 
+	private boolean isFirstCallDone = false;
+	private long msecLastCall = 0;
+
 	private LocationManager locationManager;
 	private String provider;
 	private MyLocationListener mylistener;
 	private Criteria criteria;
 
+	protected BTHelper mBTHelper;
 
 	public static HUDConnectivityManager mHUDConnectivityManager = null;
     public boolean first;
@@ -70,13 +78,16 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 	private TextView temperature,textressentie,temperature1,temperature2,textView5;
 	private ImageView iconimage,iconimage1,iconimage2;
 	public static String result;
+
+	protected Location location;
 	public double latitude,oldLatitude;
 	public double longitude,oldLongitude;
 	static String key = "28faca837266a521f823ab10d1a45050";
     String language,unit,vitesse;
     String icon,PreviousResult,temp,statusline;
 	boolean Mydebug, nointernet, nogps;
-	private String un,city;
+	private String un;
+	private String city = "unknown city";
 	private String feel,press,wind,humid,time;
 
 	private static final String mac_file = "mac_myweather.json";
@@ -140,6 +151,7 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 			e.printStackTrace();
 		}
 		*/
+
 		TimeZone tz = TimeZone.getDefault();
 		setContentView(R.layout.activity_main2);
 //		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -162,7 +174,9 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 		filter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
 		this.registerReceiver(mReceiver, filter);
 
-	    //Uncomment to load mac address from file
+		this.mBTHelper = BTHelper.getInstance(this.getApplicationContext());
+
+		//Uncomment to load mac address from file
 	    loadMacAddres();
 
 	    //Create open meteo map to translate codes to icons
@@ -239,6 +253,9 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 	 * @param data
 	 */
 	private void onDisplay(String data) {
+
+		Log.i(TAG, "Received new weather forecast");
+
 		if (nointernet ) { statusline ="No Internet access";}
 		if (nogps ) { statusline ="No Gps signal";}
 		if (nointernet & nogps) { statusline = "no gps and no Internet"; }
@@ -421,7 +438,7 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 		criteria.setAccuracy(Criteria.ACCURACY_COARSE);   //default
 		criteria.setCostAllowed(false);
 		provider = locationManager.getBestProvider(criteria, false);
-		Location location = locationManager.getLastKnownLocation(provider);
+		this.location = locationManager.getLastKnownLocation(provider);
 		mylistener = new MyLocationListener();
 		out("Get Location ");
 
@@ -444,10 +461,13 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 			statusline = "Test location";
 		}
 
+		locationManager.requestLocationUpdates(provider, 2000, 100, mylistener);
+
 		if (location != null) {
 			out("I have got a location ");
-			mylistener.onLocationChanged(location);
-			locationManager.requestLocationUpdates(provider, 2000, 100, mylistener);
+
+			//mylistener.onLocationChanged(location);
+
 			String a = "" + location.getLatitude();
 
 			//Logging
@@ -512,6 +532,9 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 		protected String doInBackground(Void... voids) {
 			try {
 				out("try get " + mUrl);
+
+				isFirstCallDone = true;
+
 				HUDHttpRequest request = new HUDHttpRequest(HUDHttpRequest.RequestMethod.GET, mUrl);
 				HUDHttpResponse response = mHUDConnectivityManager.sendWebRequest(request);
 				if (response.hasBody()) {
@@ -534,11 +557,16 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 				out("Displaying data...");
 				onDisplay(result);
 				out("Data displayed...");
+
+				msecLastCall = System.currentTimeMillis();
 			} else {
 				nointernet = true;
 				statusline = "No Internet access";
 				status.setText(statusline);
 			}
+
+			//Try to cancel
+			mHUDConnectivityManager.mHUDHttpBTConnection.mHUDBTService.cancelConnected();
 		}
 	}
 
@@ -645,6 +673,42 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 		@Override
 		public void onLocationChanged(Location location) {
 			// Initialize the location fields
+			MainActivity.this.location = location;
+
+			double latitude=location.getLatitude();
+			double longitude=location.getLongitude();
+			String msg="New Latitude: "+latitude + "New Longitude: "+longitude;
+			statusline = msg;
+			nogps = false;
+
+			Log.i(TAG, "Location updated");
+
+			//Wait for 1st call from service connected
+			//if(isFirstCallDone) {
+				//Commented to avoid to much calling
+				//Maybe a delay has to be implemented
+
+				Log.i(TAG, "Location updated: first call done");
+
+				//5 minutes
+				if((System.currentTimeMillis() - msecLastCall/(1000.0*60.0))>=5) {
+					msecLastCall = System.currentTimeMillis();
+
+					Log.i(TAG, "Request new weather forecast");
+
+					String url = String.format(apiUrlWithParamHourly, latitude, longitude);
+					Log.i("MainActivity", "Performing call to " + url);
+					new WebRequestTask3(url).execute();
+				}
+			//}
+			else
+			{
+				/*
+				Log.i(TAG, "Bind web service");
+				Intent intent = new Intent(MainActivity.this, HUDWebService.class);
+				bindService(intent, MainActivity.this.hudWebSrvConn, Context.BIND_AUTO_CREATE);
+				*/
+			}
 		}
 
 		@Override
@@ -689,7 +753,10 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 			MainActivity.this.mHUDConnectivityManager = MainActivity.this.mHUDWebService.hudConnectivityManager;
 
 			//Send web request to phone
-			new WebRequestTask3(url).execute();
+			if(MainActivity.this.location!=null) {
+				msecLastCall = System.currentTimeMillis();
+				new WebRequestTask3(url).execute();
+			}
 		}
 
 		@Override
@@ -723,7 +790,7 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 
 					Log.i("MainActivity", "SaveMacDataToFile");
 
-					mHUDWebService.connect();
+					//mHUDWebService.connect();
 				}
 			}
 			else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
@@ -757,6 +824,16 @@ public class MainActivity extends Activity implements IHUDConnectivity {
 
 	private void loadMacAddres()
 	{
+		if(this.mBTHelper!=null)
+		{
+			String lastAddress = this.mBTHelper.getLastPairedDeviceAddress();
+			if(lastAddress!=null && !lastAddress.isEmpty())
+			{
+				phoneAddress=lastAddress;
+				return;
+			}
+		}
+
 		File fl = new File(this.getFilesDir()+"/"+ mac_file);
 		if (fl.exists() ) {
 			FileInputStream fin;

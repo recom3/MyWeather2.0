@@ -624,6 +624,11 @@ public class HUDBTService {
         }
     }
 
+    public void cancelConnected()
+    {
+        mConnectedThread.cancel();
+    }
+
     /**
      * Indicate that the connection attempt failed and notify the UI Activity.
      */

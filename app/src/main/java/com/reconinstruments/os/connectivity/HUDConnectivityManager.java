@@ -35,7 +35,7 @@ public class HUDConnectivityManager implements IHUDConnectivity {
     private static final boolean DEBUG = true;
     private static final String TAG = "HUDConnectivityManager";
 
-    private HUDHttpBTConnection mHUDHttpBTConnection = null;
+    public HUDHttpBTConnection mHUDHttpBTConnection = null;
     public HUDBTService mHUDBTService = null;
 
     private boolean mIsHUD = true;
